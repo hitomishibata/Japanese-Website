@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTM Japanese</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'blogs/index.css' %}">
+    </head>
+    <body>
+        <p class="title">Blogs</p>
+        <img class="main-img" src="{% static 'blogs/img_poke_01_01.jpg' %}">
+        <p class="instruction">You can find articles of your intersts and grammars that you wanna practice</p>
+        <div class="dropdown">
+            <button class="dropdown-button">Category</button>
+            <div class="dropdown-content">
+                <a href="category/anime/">Anime</a>
+                <a href="category/arts/">Arts</a>
+                <a href="category/business/">Business</a>
+                <a href="category/culture/">Culture</a>
+                <a href="category/food/">Food</a>
+                <a href="category/fashion/">Fashion</a>
+                <a href="category/games/">Games</a>
+                <a href="category/movies/">Movies</a>
+                <a href="category/sports/">Sports</a>
+                <a href="category/technology/">Technology</a>
+                <a href="category/travel/">Travel</a>
+
+             </div>
+        </div>
+        <div class="dropdown-grammar">
+            <button class="grammar-button">Grammar</button>
+            <input class="search" type="text" placeholder="Search">
+        </div>
+        <p class="latest-blogs"> Latest Blogs</p>
+        <ul>
+            {% for blog in blogs_from_this_week %}
+               <div class="blog-banner-div">
+                <p class="blog-banner-title">{{ blog.title }}</p><img class="blog-banner-img" src="{{ blog.banner_image.url }}">
+               </div> 
+            {% endfor %}
+        </ul>
+        <a href="https://preply.com/en/tutor/1836369" target="_blank">Book Japanese Lessons</a>
+        
+    </body>
+</html>
+

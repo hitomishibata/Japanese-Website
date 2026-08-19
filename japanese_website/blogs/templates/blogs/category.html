@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ input_tag }}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'blogs/category.css' %}">
+    </head>
+    <body>
+        <p class=title>{{ input_tag }}</p>
+        <img main-img src="{% static tag_img %}">
+        {% for blog in tag_filt_blogs %}
+            <div class=blog-banner-div>
+                <p class=blog-banner-title>{{ blog.title }}</p>
+                <p class=blog-banner-date>{{ blog.pub_date }}</p>
+                <img class=blog-banner-img src="{{blog.banner_image.url}}">
+            </div>
+        {% endfor %}
+    </body>
+</html>

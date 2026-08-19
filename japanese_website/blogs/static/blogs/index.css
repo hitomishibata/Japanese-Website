@@ -1,0 +1,115 @@
+     
+     .main-img {
+        display: block;
+        width: 400px;
+        object-fit: contain;
+        object-position: top;
+        margin-left: auto;
+        margin-right: auto;
+     }
+
+     .instruction {
+        display: block;
+        font-size: 20px;
+        text-align: center;
+
+     }
+
+     .search {
+        display: inline-block;
+        padding: 6px;
+        border: darkgray;
+        margin-top: 8px;
+        margin-right: 16px;
+        font-size: 17px;
+        
+     }
+     .dropdown {
+        display: inline-block;
+        position: relative;
+
+     }
+
+     .dropdown-button {
+        display: inline-block;
+        background-color: white;
+        color: black;
+        padding: 16px;
+        border: none;
+        height: 36px;
+        width: 105px;
+        border-radius: 2px;
+        cursor: pointer;
+
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropdown-button {
+        background-color: #550000;
+        color: white
+    }
+
+    .dropdown-content a:hover {
+        background-color: #550000;
+        color: white;
+        opacity: 0.5;
+    }
+
+   .category-button:active {
+        opacity: 0.5;
+
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 300px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;  
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        display: block;
+    }
+
+    
+    .title {
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 24px;
+        text-align: center;
+        display: block;
+    }
+
+    .latest-blogs {
+        display: block;
+        font-size: 20px;
+        text-align: center;
+    }
+    .blog-banner-div {
+        width: 300px;
+        display: inline-block;
+    }
+    .blog-banner-title {
+        display: block;
+        font-size: 30px;
+        font-weight: bold;
+        width: 300px;
+        text-align: center;
+         
+
+    }
+    .blog-banner-img {
+        display: block;
+        width: 300px;
+        object-fit: contain;
+        object-position: top;
+    }
+
+
