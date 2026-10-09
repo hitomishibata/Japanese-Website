@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTM Japanese</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">
+                <span class="logo-jp">日本語</span>
+                <span class="logo-en">HTM Japanese</span>
+            </a>
+            <div class="nav-links">
+                <a href="/blogs/">Blogs</a>
+                <a href="/blogs/?category=grammar">Grammar</a>
+                <a href="https://preply.com/en/tutor/1836369" target="_blank">Lessons</a>
+                {% if session %}
+                    <span class="nav-greeting">こんにちは、{{ session.userinfo.name }}さん！</span>
+                    <a href="/logout" class="btn-nav">Log out</a>
+                {% else %}
+                    <a href="/login" class="btn-nav">Login / Sign up</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════
+         PAGE 1 — HERO
+    ═══════════════════════════════════════ -->
+    <div class="book-page page-1 js-page">
+        <div class="page-spine"></div>
+
+        <div class="chapter-heading">
+            <p class="chapter-number">Chapter One</p>
+            <h1 class="chapter-title">
+                {% if session %}
+                    おかえり、{{ session.userinfo.name }}さん！
+                {% else %}
+                    Your journey into<br>Japanese starts here.
+                {% endif %}
+            </h1>
+            <p class="chapter-subtitle"><em>in which a student discovers a very fine language indeed</em></p>
+        </div>
+
+        <div class="page-body hero-body">
+            <!-- Illustrations cluster, floating right -->
+            <div class="illus-cluster illus-right">
+                <img src="{% static 'images/torii.png' %}" alt="Torii gate" class="illus illus-torii">
+                <img src="{% static 'images/dog-shiba.png' %}" alt="Shiba Inu" class="illus illus-shiba">
+            </div>
+
+            <div class="prose">
+                <p class="drop-cap">Japanese is one of the most rewarding languages in the world to learn — and one of the most misunderstood. It isn't just memorising kanji or mastering honorifics. It's discovering an entirely different way of seeing the world.</p>
+                <p>This is a personal corner of the internet where I share what I know: grammar guides, reading practice on topics I love, and honest lessons from someone who has been teaching for years.</p>
+                <p>Whether you're just beginning with hiragana, or preparing for the JLPT N1, pull up a chair. There's a page here with your name on it.</p>
+                <div class="prose-actions">
+                    <a href="/blogs/" class="btn-ink">Read the blog</a>
+                    <a href="https://preply.com/en/tutor/1836369" target="_blank" class="btn-ghost-ink">Book a lesson</a>
+                </div>
+            </div>
+        </div>
+
+        <p class="page-number">1</p>
+    </div>
+
+    <!-- PAGE TURN DIVIDER -->
+    <div class="page-turn">
+        <div class="page-turn-inner">
+            <span>❧</span>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         PAGE 2 — GRAMMAR & TOPICS
+    ═══════════════════════════════════════ -->
+    <div class="book-page page-2 js-page">
+        <div class="page-spine"></div>
+
+        <div class="chapter-heading">
+            <p class="chapter-number">Chapter Two</p>
+            <h2 class="chapter-title">What you'll find here.</h2>
+            <p class="chapter-subtitle"><em>in which the topics of the journal are laid out quite clearly</em></p>
+        </div>
+
+        <div class="page-body topics-body">
+            <div class="prose topics-prose">
+                <p>The journal is organised into a few main areas. You may wander through them in any order you like — though most readers find that starting with Grammar leads to fewer surprises later on.</p>
+
+                <div class="topic-list">
+                    <div class="topic-item">
+                        <span class="topic-kanji">文</span>
+                        <div>
+                            <h3>Grammar</h3>
+                            <p>Every major pattern from N5 to N1, explained the way a friend would — not a textbook.</p>
+                            <a href="/blogs/?category=grammar" class="topic-link">Browse grammar →</a>
+                        </div>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-kanji">化</span>
+                        <div>
+                            <h3>Culture &amp; Reading</h3>
+                            <p>Articles on anime, food, travel, and everyday Japanese life — reading practice that doesn't feel like practice.</p>
+                            <a href="/blogs/?category=culture" class="topic-link">Browse articles →</a>
+                        </div>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-kanji">話</span>
+                        <div>
+                            <h3>Live Lessons</h3>
+                            <p>One-on-one sessions when you want a real conversation and real feedback.</p>
+                            <a href="https://preply.com/en/tutor/1836369" target="_blank" class="topic-link">Book on Preply →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Illustrations cluster, floating left -->
+            <div class="illus-cluster illus-left-col">
+                <img src="{% static 'images/kamakuradaibutsu.png' %}" alt="Kamakura Daibutsu" class="illus illus-buddha">
+                <img src="{% static 'images/shirakawago.png' %}" alt="Shirakawa-go" class="illus illus-village">
+            </div>
+        </div>
+
+        <!-- JLPT levels as a footnote line -->
+        <div class="jlpt-footnote">
+            <span class="footnote-label">Levels covered —</span>
+            <span class="jlpt-pill">N5</span>
+            <span class="jlpt-pill">N4</span>
+            <span class="jlpt-pill">N3</span>
+            <span class="jlpt-pill">N2</span>
+            <span class="jlpt-pill">N1</span>
+        </div>
+
+        <p class="page-number">2</p>
+    </div>
+
+    <!-- PAGE TURN DIVIDER -->
+    <div class="page-turn">
+        <div class="page-turn-inner">
+            <span>❧</span>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         PAGE 3 — CTA / SIGN UP
+    ═══════════════════════════════════════ -->
+    <div class="book-page page-3 js-page">
+        <div class="page-spine"></div>
+
+        <div class="chapter-heading">
+            <p class="chapter-number">Chapter Three</p>
+            <h2 class="chapter-title">The last page is really the first.</h2>
+            <p class="chapter-subtitle"><em>in which the reader is warmly invited to begin</em></p>
+        </div>
+
+        <div class="page-body cta-body">
+            <div class="illus-cluster illus-cta">
+                <img src="{% static 'images/kaminarimon.png' %}" alt="Kaminarimon" class="illus illus-gate">
+            </div>
+            <div class="prose cta-prose">
+                <p>Every great journey starts with a single step — or, in this case, a single hiragana. Create a free account to save articles, track grammar points, and book lessons whenever you're ready.</p>
+                <p>The story's already written. You just have to show up.</p>
+                {% if session %}
+                    <a href="/blogs/" class="btn-ink">Go to the blog</a>
+                {% else %}
+                    <a href="/login" class="btn-ink">Join for free</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <p class="page-number">3</p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <span class="footer-logo">日本語 HTM Japanese</span>
+            <div class="footer-links">
+                <a href="/blogs/">Blogs</a>
+                <a href="/blogs/?category=grammar">Grammar</a>
+                <a href="https://preply.com/en/tutor/1836369" target="_blank">Book a lesson</a>
+            </div>
+            <p class="footer-copy">© 2024 HTM Japanese</p>
+        </div>
+    </footer>
+
+    <script>
+        // Page-flip reveal: each book-page slides up like a page turning
+        const pages = document.querySelectorAll('.js-page');
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('page-visible');
+            });
+        }, { threshold: 0.08 });
+        pages.forEach(p => obs.observe(p));
+    </script>
+</body>
+</html>
