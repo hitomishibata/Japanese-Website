@@ -16,10 +16,11 @@ def category(request, tag: str):
     valid_tags = dict(Blog.TAG_CHOICES).keys()
     if tag not in valid_tags:
         raise Http404("Category does not exist")
-    filtered_blogs = Blog.objects.filter(tags__contains=[tag]).order_by('-pub_date')
+    filtered_blogs = Blog.objects.filter(tags__contains=[tag])
     return render(request, "blogs/category.html", {'tag_filt_blogs': filtered_blogs, 'input_tag': tag, 'tag_img': f'blogs/{tag}.jpg'})
 
 def grammer(request, grammars: list):
+    
     valid_grammars = Blog.GRAMMAR_CHOICES.keys()
     for grammer in grammars:
         if grammer not in valid_grammars:
